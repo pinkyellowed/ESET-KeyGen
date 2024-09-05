@@ -62,8 +62,7 @@ jobs:
           sudo rm -r ESET-KeyGen
           git pull
           git commit -m "Update test time" -a
-      - name: Push changes to the repo
-        uses: ad-m/github-push-action@master
+      - name: Checkout code
+        uses: actions/checkout@v3
         with:
-          github_token: ${{ secrets.PAT }}
-          branch: ${{ github.ref }}
+          fetch-depth: 0 
