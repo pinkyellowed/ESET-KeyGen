@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 jobs:
   Test:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - name: 'Checkout Repo'
         uses: actions/checkout@v4
@@ -62,7 +62,8 @@ jobs:
           sudo rm -r ESET-KeyGen
           git pull
           git commit -m "Update test time" -a
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - name: Push changes to the repo
+        uses: ad-m/github-push-action@master
         with:
-          fetch-depth: 0 
+          github_token: ${{ secrets.PAT }}
+          branch: ${{ github.ref }}
