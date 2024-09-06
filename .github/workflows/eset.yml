@@ -32,7 +32,7 @@ on:
         default: --key
 jobs:
   GenerateKey:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       - name: Generate key
         run: |
